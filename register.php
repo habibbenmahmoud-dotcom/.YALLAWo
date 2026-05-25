@@ -1,9 +1,4 @@
 <?php
-// ============================================================
-// register.php — Create a new user account
-// POST: prenom, nom, email, password, role
-// ============================================================
-
 require_once __DIR__ . '/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -15,8 +10,6 @@ $nom      = post('nom');
 $email    = post('email');
 $password = post('password');
 $role     = post('role');
-
-// --- Validation ---
 if (!$prenom || !$nom || !$email || !$password) {
     jsonResponse(['success' => false, 'message' => 'Tous les champs sont obligatoires.']);
 }
@@ -31,19 +24,15 @@ if (strlen($password) < 8) {
 
 $allowedRoles = ['etudiant', 'entreprise'];
 if (!in_array($role, $allowedRoles, true)) {
-    $role = 'etudiant'; // safe default
+    $role = 'etudiant'; 
 }
 
 $pdo = getPDO();
-
-// Check if email already exists
 $stmt = $pdo->prepare('SELECT id FROM users WHERE email = ?');
 $stmt->execute([$email]);
 if ($stmt->fetch()) {
     jsonResponse(['success' => false, 'message' => 'Cette adresse email est déjà utilisée.']);
 }
-
-// Hash password and insert user
 $hash = password_hash($password, PASSWORD_BCRYPT);
 
 $stmt = $pdo->prepare(
