@@ -1,17 +1,9 @@
 <?php
-// ============================================================
-// send_message.php — Save a message between two users
-// POST: receiver_id, body
-// Requires an active session (logged-in user as sender)
-// ============================================================
-
 require_once __DIR__ . '/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     jsonResponse(['success' => false, 'message' => 'Méthode non autorisée.'], 405);
 }
-
-// Start session and check authentication
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -33,8 +25,6 @@ if ($sender_id === $receiver_id) {
 }
 
 $pdo = getPDO();
-
-// Verify receiver exists
 $check = $pdo->prepare('SELECT id FROM users WHERE id = ?');
 $check->execute([$receiver_id]);
 if (!$check->fetch()) {
