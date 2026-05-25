@@ -1,9 +1,4 @@
 <?php
-// ============================================================
-// search_offers.php — Search / list job offers
-// GET: keyword (optional), location (optional)
-// ============================================================
-
 require_once __DIR__ . '/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
