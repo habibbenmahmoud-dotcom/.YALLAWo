@@ -1,0 +1,5 @@
+# Block direct access to uploaded CVs
+Options -Indexes
+<FilesMatch "\.php$">
+    Deny from all
+</FilesMatch>

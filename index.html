@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YallaWork – Portail Étudiants & Entreprises</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-logo-icon">YW</div>
+      <div class="nav-logo-text">Yalla<span>Work</span></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#offres" class="active">Offres</a></li>
+      <li><a href="#candidatures">Candidatures</a></li>
+      <li><a href="#messagerie">Messagerie</a></li>
+      <li><a href="#entreprises">Entreprises</a></li>
+      <li><a href="#features">Fonctionnalités</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-ghost" onclick="openModal('login')">Connexion</button>
+      <button class="btn-primary" onclick="openModal('register')">Créer un compte</button>
+    </div>
+  </nav>
+  <div class="main-content">
+    <section class="hero" id="home">
+      <div class="hero-bg"></div>
+      <div class="hero-grid-lines"></div>
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Plateforme Ouverte · Promotion 2025
+      </div>
+      <h1 class="hero-title">
+        <span class="line1">Connecter les</span>
+        <span class="line2">Talents de demain</span>
+        <span class="line3">aux opportunités d'aujourd'hui</span>
+      </h1>
+      <p class="hero-desc">Le portail de référence qui réunit étudiants ambitieux et entreprises innovantes. Publiez,
+        postulez, échangez — tout en un.</p>
+      <div class="hero-cta">
+        <button class="btn-primary btn-large" onclick="smoothScroll('offres')">🎓 Trouver un stage / emploi</button>
+        <button class="btn-ghost btn-large" onclick="smoothScroll('entreprises')">🏢 Publier une offre</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-number">4 200+</div>
+          <div class="hero-stat-label">Étudiants inscrits</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">380</div>
+          <div class="hero-stat-label">Entreprises partenaires</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">1 850</div>
+          <div class="hero-stat-label">Offres actives</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">93%</div>
+          <div class="hero-stat-label">Taux de satisfaction</div>
+        </div>
+      </div>
+    </section>
+    <div class="divider"></div>
+    <section id="features">
+      <div class="container">
+        <div class="section-intro">
+          <div>
+            <div class="section-label">Fonctionnalités</div>
+            <h2 class="section-title">Tout ce dont vous avez besoin,<br>en un seul endroit</h2>
+          </div>
+          <p class="section-sub">Des outils pensés pour accélérer votre recherche et simplifier le recrutement.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">📋</div>
+            <div class="feature-title">Publication d'offres</div>
+            <div class="feature-desc">Les recruteurs publient et gèrent leurs offres de stage et d'emploi avec des
+              outils avancés de suivi.</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">👤</div>
+            <div class="feature-title">Profil & Portfolio</div>
+            <div class="feature-desc">Créez votre profil étudiant complet, déposez votre CV et présentez vos projets en
+              portfolio.</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <div class="feature-title">Moteur de recherche</div>
+            <div class="feature-desc">Filtrez les offres par secteur, localisation, durée, rémunération et niveau
+              d'études requis.</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📬</div>
+            <div class="feature-title">Candidatures en ligne</div>
+            <div class="feature-desc">Postulez en quelques clics et suivez l'état de chaque candidature en temps réel.
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💬</div>
+            <div class="feature-title">Messagerie interne</div>
+            <div class="feature-desc">Échangez directement avec les recruteurs ou les candidats via notre messagerie
+              sécurisée.</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">✨</div>
+            <div class="feature-title">Recommandations IA</div>
+            <div class="feature-desc">Recevez des suggestions d'offres personnalisées basées sur votre profil,
+              compétences et préférences.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="divider"></div>
+    <section id="offres">
+      <div class="container">
+        <div class="section-intro">
+          <div>
+            <div class="section-label">Portail Étudiant</div>
+            <h2 class="section-title">Trouvez l'opportunité<br>qui vous correspond</h2>
+          </div>
+          <button class="btn-primary" onclick="openModal('apply')">+ Déposer mon CV</button>
+        </div>
+        <div class="tab-container">
+          <div class="tab-header">
+            <button class="tab-btn active" onclick="switchTab('search')" id="tab-search"><span
+                class="tab-icon">🔍</span> Recherche d'offres</button>
+            <button class="tab-btn" onclick="switchTab('profile')" id="tab-profile"><span class="tab-icon">👤</span> Mon
+              Profil</button>
+            <button class="tab-btn" onclick="switchTab('reco')" id="tab-reco"><span class="tab-icon">✨</span>
+              Recommandations</button>
+          </div>
+          <div class="tab-content active" id="content-search">
+            <div class="search-section">
+              <div class="search-title">Trouver une offre</div>
+              <div class="search-bar">
+                <div class="search-input-wrap" style="flex:2">
+                  <span class="icon">🔍</span>
+                  <input class="search-input" id="search-keyword" type="text"
+                    placeholder="Poste, entreprise, mot-clé...">
+                </div>
+                <div class="search-input-wrap">
+                  <span class="icon">📍</span>
+                  <input class="search-input" id="search-location" type="text" placeholder="Ville, région...">
+                </div>
+                <button class="btn-primary" style="white-space:nowrap;padding:12px 24px"
+                  onclick="searchOffers()">Rechercher</button>
+              </div>
+              <div class="filter-chips">
+                <button class="chip active" data-filter="all">Tous</button>
+                <button class="chip" data-filter="stage">Stage</button>
+                <button class="chip" data-filter="cdi">CDI</button>
+                <button class="chip" data-filter="cdd">CDD</button>
+                <button class="chip" data-filter="alternance">Alternance</button>
+                <button class="chip" data-filter="remote">Remote</button>
+                <button class="chip" data-filter="tech">Tech</button>
+                <button class="chip" data-filter="finance">Finance</button>
+                <button class="chip" data-filter="marketing">Marketing</button>
+                <button class="chip" data-filter="design">Design</button>
+              </div>
+            </div>
+            <div class="jobs-grid" id="jobs-grid">
+              <div class="job-card" onclick="openModal('apply')">
+                <div class="job-logo">🏦</div>
+                <div class="job-info">
+                  <div class="job-title">Développeur Full-Stack Junior</div>
+                  <div class="job-company">FinTech Maghreb S.A.</div>
+                  <div class="job-tags">
+                    <span class="tag tag-emploi">CDI</span>
+                    <span class="tag tag-remote">Remote</span>
+                    <span class="tag tag-stage" style="background:rgba(167,139,250,0.12);color:#a78bfa">Bac+5</span>
+                  </div>
+                </div>
+                <div class="job-meta">
+                  <div class="job-salary">2 800 – 3 500 TND</div>
+                  <div class="job-location">📍 Tunis, TN</div>
+                  <div class="job-date">Publié il y a 2j</div>
+                </div>
+              </div>
+              <div class="job-card" onclick="openModal('apply')">
+                <div class="job-logo">🛒</div>
+                <div class="job-info">
+                  <div class="job-title">Stage Data Science – Analyse Comportementale</div>
+                  <div class="job-company">E-Commerce Solutions</div>
+                  <div class="job-tags">
+                    <span class="tag tag-stage">Stage</span>
+                    <span class="tag" style="background:rgba(52,211,153,0.12);color:#34d399">6 mois</span>
+                  </div>
+                </div>
+                <div class="job-meta">
+                  <div class="job-salary">600 TND/mois</div>
+                  <div class="job-location">📍 Sfax, TN</div>
+                  <div class="job-date">Publié il y a 4j</div>
+                </div>
+              </div>
+              <div class="job-card" onclick="openModal('apply')">
+                <div class="job-logo">🎨</div>
+                <div class="job-info">
+                  <div class="job-title">UX/UI Designer – Applications Mobile</div>
+                  <div class="job-company">Agence Pixel & Co</div>
+                  <div class="job-tags">
+                    <span class="tag tag-cdd">CDD</span>
+                    <span class="tag tag-remote">Hybride</span>
+                  </div>
+                </div>
+                <div class="job-meta">
+                  <div class="job-salary">1 800 TND</div>
+                  <div class="job-location">📍 Sousse, TN</div>
+                  <div class="job-date">Publié il y a 1j</div>
+                </div>
+              </div>
+              <div class="job-card" onclick="openModal('apply')">
+                <div class="job-logo">🔬</div>
+                <div class="job-info">
+                  <div class="job-title">Alternance – Cybersécurité & Audit SI</div>
+                  <div class="job-company">NordTech Consulting</div>
+                  <div class="job-tags">
+                    <span class="tag" style="background:rgba(251,146,60,0.12);color:#fb923c">Alternance</span>
+                    <span class="tag" style="background:rgba(52,211,153,0.12);color:#34d399">12 mois</span>
+                  </div>
+                </div>
+                <div class="job-meta">
+                  <div class="job-salary">900 TND/mois</div>
+                  <div class="job-location">📍 Ariana, TN</div>
+                  <div class="job-date">Publié il y a 6j</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-content" id="content-profile">
+            <div class="profile-layout">
+              <div>
+                <div class="profile-card">
+                  <div class="profile-avatar">AM</div>
+                  <div class="profile-name">Amine Mansouri</div>
+                  <div class="profile-degree">Master 2 – Génie Informatique · INSAT</div>
+                  <div class="profile-completion">
+                    <div class="completion-label"><span>Profil complété</span><span style="color:var(--gold)">78%</span>
+                    </div>
+                    <div class="completion-bar">
+                      <div class="completion-fill" style="width:78%"></div>
+                    </div>
+                  </div>
+                  <div class="profile-skills">
+                    <span class="skill-tag">React.js</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Machine Learning</span>
+                  </div>
+                  <div class="profile-actions">
+                    <button class="btn-primary" onclick="openModal('apply')">📤 Mettre à jour le CV</button>
+                    <button class="btn-outline">✏️ Modifier le profil</button>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div
+                  style="background:var(--bg-deep);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px">
+                  <div
+                    style="font-size:14px;font-weight:600;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center">
+                    📂 Portfolio & Projets
+                    <button class="btn-ghost" style="font-size:12px;padding:6px 12px">+ Ajouter</button>
+                  </div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                    <div
+                      style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:16px">
+                      <div style="font-size:13px;font-weight:600;margin-bottom:4px">🛍️ E-commerce Platform</div>
+                      <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px">React, Node.js, MongoDB
+                      </div>
+                      <div style="font-size:11px;color:var(--teal)">→ Voir le projet</div>
+                    </div>
+                    <div
+                      style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:16px">
+                      <div style="font-size:13px;font-weight:600;margin-bottom:4px">🤖 ML Sentiment Analyzer</div>
+                      <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px">Python, TensorFlow, BERT
+                      </div>
+                      <div style="font-size:11px;color:var(--teal)">→ Voir le projet</div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  style="background:var(--bg-deep);border:1px solid var(--border);border-radius:var(--radius);padding:24px">
+                  <div style="font-size:14px;font-weight:600;margin-bottom:16px">🎯 Préférences de recherche</div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+                    <div style="font-size:12px;color:var(--text-muted)">Type de contrat</div>
+                    <div style="font-size:12px">Stage / CDI</div>
+                    <div style="font-size:12px;color:var(--text-muted)">Localisation</div>
+                    <div style="font-size:12px">Tunis ou Remote</div>
+                    <div style="font-size:12px;color:var(--text-muted)">Rémunération min.</div>
+                    <div style="font-size:12px;color:var(--teal);font-family:var(--font-mono)">600 TND/mois</div>
+                    <div style="font-size:12px;color:var(--text-muted)">Disponibilité</div>
+                    <div style="font-size:12px">Juillet 2025</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-content" id="content-reco">
+            <div
+              style="margin-bottom:24px;padding:16px;background:var(--teal-dim);border:1px solid rgba(45,212,191,0.2);border-radius:var(--radius);display:flex;align-items:center;gap:12px">
+              <span style="font-size:22px">✨</span>
+              <div>
+                <div style="font-size:13px;font-weight:600;color:var(--teal)">Recommandations personnalisées</div>
+                <div style="font-size:12px;color:var(--text-secondary)">Basées sur votre profil React.js · Python ·
+                  Machine Learning · Tunis</div>
+              </div>
+            </div>
+            <div class="reco-grid">
+              <div class="reco-card">
+                <div class="reco-match">96% match</div>
+                <div class="reco-logo">🤖</div>
+                <div class="reco-title">Ingénieur ML / NLP</div>
+                <div class="reco-company">AI Startup Carthage</div>
+                <div class="reco-details">
+                  <div class="reco-detail">📍 Tunis (Hybride)</div>
+                  <div class="reco-detail">💰 2 500 – 3 200 TND</div>
+                  <div class="reco-detail">📅 CDI · Disponible maintenant</div>
+                </div>
+                <button class="btn-primary" style="width:100%;padding:10px"
+                  onclick="openModal('apply')">Postuler</button>
+              </div>
+              <div class="reco-card">
+                <div class="reco-match">89% match</div>
+                <div class="reco-logo">🌐</div>
+                <div class="reco-title">Développeur React Senior</div>
+                <div class="reco-company">WebAgency Pro</div>
+                <div class="reco-details">
+                  <div class="reco-detail">📍 Remote</div>
+                  <div class="reco-detail">💰 2 200 – 2 800 TND</div>
+                  <div class="reco-detail">📅 CDD 12 mois</div>
+                </div>
+                <button class="btn-primary" style="width:100%;padding:10px"
+                  onclick="openModal('apply')">Postuler</button>
+              </div>
+              <div class="reco-card">
+                <div class="reco-match">84% match</div>
+                <div class="reco-logo">📊</div>
+                <div class="reco-title">Stage Data Analyst</div>
+                <div class="reco-company">BankData Solutions</div>
+                <div class="reco-details">
+                  <div class="reco-detail">📍 La Marsa, TN</div>
+                  <div class="reco-detail">💰 700 TND/mois</div>
+                  <div class="reco-detail">📅 Stage 6 mois</div>
+                </div>
+                <button class="btn-primary" style="width:100%;padding:10px"
+                  onclick="openModal('apply')">Postuler</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="divider"></div>
+    <section id="candidatures">
+      <div class="container">
+        <div class="section-intro">
+          <div>
+            <div class="section-label">Tableau de bord</div>
+            <h2 class="section-title">Suivi des candidatures<br><span style="color:var(--gold)">Kanban</span></h2>
+          </div>
+          <button class="btn-primary" onclick="openModal('apply')">+ Nouvelle candidature</button>
+        </div>
+        <div class="kanban">
+          <div class="kanban-col col-envoyee">
+            <div class="kanban-col-header"><span class="kanban-col-title">Envoyée</span><span
+                class="kanban-count">3</span></div>
+            <div class="kanban-cards">
+              <div class="kanban-card">
+                <div class="kcard-company">FinTech Maghreb</div>
+                <div class="kcard-role">Développeur Full-Stack</div>
+                <div class="kcard-footer"><span class="kcard-date">29 avr.</span>
+                  <div class="kcard-avatar">AM</div>
+                </div>
+              </div>
+              <div class="kanban-card">
+                <div class="kcard-company">E-Commerce Solutions</div>
+                <div class="kcard-role">Stage Data Science</div>
+                <div class="kcard-footer"><span class="kcard-date">01 mai</span>
+                  <div class="kcard-avatar">AM</div>
+                </div>
+              </div>
+              <div class="kanban-card">
+                <div class="kcard-company">NordTech Consulting</div>
+                <div class="kcard-role">Alternance Cybersécurité</div>
+                <div class="kcard-footer"><span class="kcard-date">02 mai</span>
+                  <div class="kcard-avatar">AM</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="kanban-col col-vue">
+            <div class="kanban-col-header"><span class="kanban-col-title">Vue</span><span class="kanban-count">2</span>
+            </div>
+            <div class="kanban-cards">
+              <div class="kanban-card">
+                <div class="kcard-company">Agence Pixel & Co</div>
+                <div class="kcard-role">UX/UI Designer Mobile</div>
+                <div class="kcard-footer"><span class="kcard-date">27 avr.</span>
+                  <div class="kcard-avatar">AM</div>
+                </div>
+              </div>
+              <div class="kanban-card">
+                <div class="kcard-company">AI Startup Carthage</div>
+                <div class="kcard-role">Ingénieur ML / NLP</div>
+                <div class="kcard-footer"><span class="kcard-date">25 avr.</span>
+                  <div class="kcard-avatar">AM</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="kanban-col col-entretien">
+            <div class="kanban-col-header"><span class="kanban-col-title">Entretien</span><span
+                class="kanban-count">2</span></div>
+            <div class="kanban-cards">
+              <div class="kanban-card">
+                <div class="kcard-company">WebAgency Pro</div>
+                <div class="kcard-role">Développeur React Senior</div>
+                <div class="kcard-footer"><span class="kcard-date">🗓 05 mai 14h</span>
+                  <div class="kcard-avatar">AM</div>
+                </div>
+              </div>
+              <div class="kanban-card">
+                <div class="kcard-company">BankData Solutions</div>
+                <div class="kcard-role">Stage Data Analyst</div>
+                <div class="kcard-footer"><span class="kcard-date">🗓 07 mai 10h</span>
+                  <div class="kcard-avatar">AM</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="kanban-col col-acceptee">
+            <div class="kanban-col-header"><span class="kanban-col-title">Acceptée</span><span
+                class="kanban-count">1</span></div>
+            <div class="kanban-cards">
+              <div class="kanban-card">
+                <div class="kcard-company">TechVentures TN</div>
+                <div class="kcard-role">Développeur Back-end</div>
+                <div class="kcard-footer"><span class="kcard-date">✅ 22 avr.</span>
+                  <div class="kcard-avatar">AM</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="kanban-col col-refusee">
+            <div class="kanban-col-header"><span class="kanban-col-title">Refusée</span><span
+                class="kanban-count">1</span></div>
+            <div class="kanban-cards">
+              <div class="kanban-card">
+                <div class="kcard-company">MegaCorp Tunis</div>
+                <div class="kcard-role">Ingénieur DevOps</div>
+                <div class="kcard-footer"><span class="kcard-date">❌ 18 avr.</span>
+                  <div class="kcard-avatar">AM</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="divider"></div>
+    <section id="messagerie">
+      <div class="container">
+        <div class="section-intro">
+          <div>
+            <div class="section-label">Communication</div>
+            <h2 class="section-title">Messagerie interne</h2>
+          </div>
+        </div>
+        <div class="chat-layout">
+          <div class="chat-sidebar">
+            <div class="chat-sidebar-header">Conversations</div>
+            <div class="chat-contact active"
+              onclick="selectContact(this,'Fatma Trabelsi — RH chez FinTech Maghreb','Recruteur · Réf: DEV-2025-042')">
+              <div class="contact-avatar"
+                style="background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#0a0c10;font-size:13px;font-weight:700">
+                FT</div>
+              <div class="contact-info">
+                <div class="contact-name">Fatma Trabelsi</div>
+                <div class="contact-preview">Merci pour votre candidature...</div>
+              </div>
+              <span class="contact-badge">2</span>
+            </div>
+            <div class="chat-contact"
+              onclick="selectContact(this,'Karim Abidi — FinTech Maghreb','Recruteur · Réf: RH-2025-017')">
+              <div class="contact-avatar"
+                style="background:linear-gradient(135deg,#2dd4bf,#22d3ee);color:#0a0c10;font-size:13px;font-weight:700">
+                KA</div>
+              <div class="contact-info">
+                <div class="contact-name">Karim Abidi</div>
+                <div class="contact-preview">L'entretien est confirmé pour...</div>
+              </div>
+            </div>
+            <div class="chat-contact"
+              onclick="selectContact(this,'Rania Belhaj — Agence Pixel','Recruteur · Réf: DES-2025-008')">
+              <div class="contact-avatar"
+                style="background:linear-gradient(135deg,#a78bfa,#818cf8);color:#0a0c10;font-size:13px;font-weight:700">
+                RB</div>
+              <div class="contact-info">
+                <div class="contact-name">Rania Belhaj</div>
+                <div class="contact-preview">Pouvez-vous nous envoyer un...</div>
+              </div>
+              <span class="contact-badge">1</span>
+            </div>
+          </div>
+          <div class="chat-main">
+            <div class="chat-header">
+              <div>
+                <div class="chat-header-name" id="chat-contact-name">Fatma Trabelsi — RH chez FinTech Maghreb</div>
+                <div class="chat-header-role" id="chat-contact-role">Recruteur · Réf: DEV-2025-042</div>
+              </div>
+              <div class="chat-status"><span class="status-dot"></span> En ligne</div>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+              <div class="msg recv">
+                <div class="msg-avatar"
+                  style="background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#0a0c10;font-size:11px;font-weight:700">
+                  FT</div>
+                <div>
+                  <div class="msg-bubble">Bonjour Amine, nous avons bien reçu votre candidature pour le poste de
+                    Développeur Full-Stack. Votre profil est très intéressant !</div>
+                  <div class="msg-time">10:32</div>
+                </div>
+              </div>
+              <div class="msg recv">
+                <div class="msg-avatar"
+                  style="background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#0a0c10;font-size:11px;font-weight:700">
+                  FT</div>
+                <div>
+                  <div class="msg-bubble">Seriez-vous disponible pour un entretien technique la semaine prochaine ?
+                  </div>
+                  <div class="msg-time">10:33</div>
+                </div>
+              </div>
+              <div class="msg sent">
+                <div class="msg-avatar"
+                  style="background:linear-gradient(135deg,var(--gold),var(--teal));color:#0a0c10;font-size:11px;font-weight:700">
+                  AM</div>
+                <div>
+                  <div class="msg-bubble">Bonjour Mme Trabelsi ! Merci beaucoup, je suis ravi de l'intérêt que vous
+                    portez à ma candidature. Je suis disponible du lundi au mercredi.</div>
+                  <div class="msg-time">10:45</div>
+                </div>
+              </div>
+              <div class="msg recv">
+                <div class="msg-avatar"
+                  style="background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#0a0c10;font-size:11px;font-weight:700">
+                  FT</div>
+                <div>
+                  <div class="msg-bubble">Parfait ! Je vous propose le mardi 6 mai à 14h00. L'entretien durera environ
+                    1h. Confirmez-vous ?</div>
+                  <div class="msg-time">11:02</div>
+                </div>
+              </div>
+            </div>
+            <div class="chat-input-area">
+              <input class="chat-input" id="chat-input" type="text" placeholder="Écrivez votre message...">
+              <button class="chat-send" onclick="sendMsg()">➤</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="divider"></div>
+    <section id="entreprises">
+      <div class="container">
+        <div class="section-intro">
+          <div>
+            <div class="section-label">Espace Recruteur</div>
+            <h2 class="section-title">Tableau de bord<br>Entreprise</h2>
+          </div>
+          <button class="btn-primary"
+            onclick="showToast('Offre publiée !','Votre offre est maintenant visible par les candidats.')">+ Publier une
+            offre</button>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-card-label"><span class="stat-card-icon">📋</span> Offres actives</div>
+            <div class="stat-card-value">12</div>
+            <div class="stat-card-delta delta-up">↑ +3 ce mois</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label"><span class="stat-card-icon">📬</span> Candidatures reçues</div>
+            <div class="stat-card-value">147</div>
+            <div class="stat-card-delta delta-up">↑ +28 cette semaine</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label"><span class="stat-card-icon">📅</span> Entretiens planifiés</div>
+            <div class="stat-card-value">8</div>
+            <div class="stat-card-delta" style="color:var(--text-muted)">→ Semaine prochaine</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label"><span class="stat-card-icon">✅</span> Recrutements finalisés</div>
+            <div class="stat-card-value">5</div>
+            <div class="stat-card-delta delta-up">↑ +2 ce trimestre</div>
+          </div>
+        </div>
+        <div class="recruiter-table">
+          <div class="table-header">
+            <span class="table-title">Candidatures récentes</span>
+            <button class="btn-ghost" style="font-size:12px;padding:6px 14px">Voir tout →</button>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Candidat</th>
+                <th>Poste</th>
+                <th>Profil</th>
+                <th>Date</th>
+                <th>Statut</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Amine Mansouri</strong></td>
+                <td>Développeur Full-Stack</td>
+                <td><span style="color:var(--teal);font-family:var(--font-mono);font-size:12px">★ 4.8</span></td>
+                <td style="color:var(--text-muted);font-family:var(--font-mono);font-size:12px">02/05/2025</td>
+                <td><span class="status-badge status-interview">Entretien</span></td>
+                <td><button class="btn-ghost" style="font-size:12px;padding:5px 12px" onclick="openModal('apply')">Voir
+                    CV</button></td>
+              </tr>
+              <tr>
+                <td><strong>Sara Ben Ali</strong></td>
+                <td>Stage Data Science</td>
+                <td><span style="color:var(--teal);font-family:var(--font-mono);font-size:12px">★ 4.5</span></td>
+                <td style="color:var(--text-muted);font-family:var(--font-mono);font-size:12px">01/05/2025</td>
+                <td><span class="status-badge status-review">En cours</span></td>
+                <td><button class="btn-ghost" style="font-size:12px;padding:5px 12px">Voir CV</button></td>
+              </tr>
+              <tr>
+                <td><strong>Mohamed Gharbi</strong></td>
+                <td>Alternance Cybersécurité</td>
+                <td><span style="color:var(--teal);font-family:var(--font-mono);font-size:12px">★ 4.2</span></td>
+                <td style="color:var(--text-muted);font-family:var(--font-mono);font-size:12px">30/04/2025</td>
+                <td><span class="status-badge status-new">Nouveau</span></td>
+                <td><button class="btn-ghost" style="font-size:12px;padding:5px 12px">Voir CV</button></td>
+              </tr>
+              <tr>
+                <td><strong>Leila Chabbi</strong></td>
+                <td>UX/UI Designer</td>
+                <td><span style="color:var(--teal);font-family:var(--font-mono);font-size:12px">★ 3.9</span></td>
+                <td style="color:var(--text-muted);font-family:var(--font-mono);font-size:12px">28/04/2025</td>
+                <td><span class="status-badge status-rejected">Refusée</span></td>
+                <td><button class="btn-ghost" style="font-size:12px;padding:5px 12px">Voir CV</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <div class="divider"></div>
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:12px">
+            <div class="nav-logo-icon">YW</div>
+            <div class="nav-logo-text">Yalla<span>Work</span></div>
+          </div>
+          <p class="footer-tagline">La plateforme de mise en relation entre étudiants et entreprises pour faciliter
+            l'insertion professionnelle.</p>
+          <div class="social-links">
+            <button class="social-link">𝕏</button>
+            <button class="social-link">in</button>
+            <button class="social-link">f</button>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Étudiants</div>
+          <div class="footer-links">
+            <a href="#offres">Offres de stage</a>
+            <a href="#offres">Offres d'emploi</a>
+            <a href="#offres">Mon profil</a>
+            <a href="#candidatures">Mes candidatures</a>
+            <a href="#features">Ressources CV</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Entreprises</div>
+          <div class="footer-links">
+            <a href="#entreprises">Publier une offre</a>
+            <a href="#entreprises">Gérer les candidatures</a>
+            <a href="#messagerie">Agenda entretiens</a>
+            <a href="#entreprises">Nos tarifs</a>
+            <a href="#entreprises">Espace recruteur</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Plateforme</div>
+          <div class="footer-links">
+            <a href="#features">À propos</a>
+            <a href="#features">Blog & Conseils</a>
+            <a href="#features">Partenaires</a>
+            <a href="#features">Aide & Support</a>
+            <a href="#messagerie">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 YallaWork. Tous droits réservés.</div>
+        <div class="footer-legal">
+          <a href="#">Confidentialité</a>
+          <a href="#">CGU</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div class="modal-overlay" id="modal-apply">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('apply')">✕</button>
+      <div class="modal-title">Postuler à l'offre</div>
+      <div class="modal-subtitle">Développeur Full-Stack Junior · FinTech Maghreb</div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Prénom</label><input class="form-control" id="apply-firstname"
+            type="text" placeholder="Amine"></div>
+        <div class="form-group"><label class="form-label">Nom</label><input class="form-control" id="apply-lastname"
+            type="text" placeholder="Mansouri"></div>
+      </div>
+      <div class="form-group"><label class="form-label">Email</label><input class="form-control" id="apply-email"
+          type="email" placeholder="amine@exemple.com"></div>
+      <div class="form-group"><label class="form-label">Lettre de motivation</label><textarea class="form-control"
+          id="apply-letter" rows="3" placeholder="Présentez-vous brièvement..."></textarea></div>
+      <div class="form-group">
+        <label class="form-label">CV (PDF)</label>
+        <div class="upload-zone" id="cv-upload-zone">
+          <div class="upload-icon">📄</div>
+          <div class="upload-text">Glissez votre CV ici ou <span>parcourir</span></div>
+          <input type="file" id="cv-file" accept=".pdf" style="display:none">
+        </div>
+      </div>
+      <button class="btn-primary" style="width:100%;padding:14px;font-size:14px;margin-top:8px"
+        onclick="submitApplication()">✉️ Envoyer ma candidature</button>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-login">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('login')">✕</button>
+      <div class="modal-title">Connexion</div>
+      <div class="modal-subtitle">Bienvenue sur YallaWork</div>
+      <div class="form-group"><label class="form-label">Email</label><input class="form-control" id="login-email"
+          type="email" placeholder="votre@email.com"></div>
+      <div class="form-group"><label class="form-label">Mot de passe</label><input class="form-control"
+          id="login-password" type="password" placeholder="••••••••"></div>
+      <div id="login-error" class="form-error"></div>
+      <button class="btn-primary" style="width:100%;padding:14px;font-size:14px;margin-top:8px"
+        onclick="submitLogin()">Se connecter</button>
+      <div style="text-align:center;margin-top:16px;font-size:12px;color:var(--text-muted)">
+        Pas encore de compte ? <a href="#" style="color:var(--gold)"
+          onclick="closeModal('login');openModal('register')">S'inscrire</a>
+      </div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="modal-register">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('register')">✕</button>
+      <div class="modal-title">Créer un compte</div>
+      <div class="modal-subtitle">Rejoignez YallaWork gratuitement</div>
+      <div style="display:flex;gap:10px;margin-bottom:20px">
+        <button class="tab-btn active" style="flex:1;border-radius:8px;border:1px solid var(--border-gold)"
+          id="reg-student" onclick="switchReg('student')">🎓 Étudiant</button>
+        <button class="tab-btn" style="flex:1;border-radius:8px;border:1px solid var(--border)" id="reg-company"
+          onclick="switchReg('company')">🏢 Entreprise</button>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Prénom</label><input class="form-control" id="reg-firstname"
+            type="text" placeholder="Prénom"></div>
+        <div class="form-group"><label class="form-label">Nom</label><input class="form-control" id="reg-lastname"
+            type="text" placeholder="Nom"></div>
+      </div>
+      <div class="form-group"><label class="form-label">Email universitaire</label><input class="form-control"
+          id="reg-email" type="email" placeholder="prenom.nom@univ.tn"></div>
+      <div class="form-group"><label class="form-label">Mot de passe</label><input class="form-control"
+          id="reg-password" type="password" placeholder="Minimum 8 caractères"></div>
+      <div id="reg-error" class="form-error"></div>
+      <button class="btn-primary" style="width:100%;padding:14px;font-size:14px;margin-top:8px"
+        onclick="submitRegister()">Créer mon compte</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">
+    <span class="toast-icon">✅</span>
+    <div class="toast-text">
+      <div class="toast-title" id="toast-title">Candidature envoyée !</div>
+      <div class="toast-desc" id="toast-desc">Vous recevrez une réponse sous 48h.</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
