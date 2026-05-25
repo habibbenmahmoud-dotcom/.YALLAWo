@@ -1,9 +1,4 @@
 <?php
-// ============================================================
-// login.php — Authenticate user and start session
-// POST: email, password
-// ============================================================
-
 require_once __DIR__ . '/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -21,13 +16,9 @@ $pdo  = getPDO();
 $stmt = $pdo->prepare('SELECT id, prenom, nom, email, password_hash, role FROM users WHERE email = ?');
 $stmt->execute([$email]);
 $user = $stmt->fetch();
-
-// Use password_verify to check against the stored bcrypt hash
 if (!$user || !password_verify($password, $user['password_hash'])) {
     jsonResponse(['success' => false, 'message' => 'Identifiants incorrects.']);
 }
-
-// Start session and store user info
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
